@@ -1,7 +1,7 @@
 library(magrittr)
 library(dplyr)
-
-simulation <- as.data.frame(matrix(as.integer(runif(3000, min = 1, max = 6)), 
-                     1000, 3))
+dice <- c(1:6)
+simulation <- as.data.frame(matrix(sample(dice, 30000, replace = TRUE), 
+                     10000, 3))
 simulation <- simulation %>% mutate(sume = V1 + V2 + V3)
-hist(simulation$sume)
+table(simulation$sume)
